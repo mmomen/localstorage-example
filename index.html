@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>localstorage-example</title>
   <script src="vendor/jquery-2.1.1.js"></script>
+  <script src="vendor/handlebars-v2.0.0.js"></script>
 </head>
 <body>
   <div class="main">
@@ -12,13 +13,14 @@
     <input type="button" class="save" value="Save" />
   </div>
   <br>
-  <h3>Saved Tasks:</h3><br>
-  <div class="saved-tasks-main">
-    <div class="Task01">
-      
+  <h3>Saved Tasks:</h3><br><br>
+
+  <script id="task-template" type="text/x-handlebars-template">
+    <div class="main">
+      {{list}}
     </div>
-  </div>
+  </script>
+
   <script src="js/stuff.js"></script>
-  
 </body>
 </html>
