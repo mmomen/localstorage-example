@@ -1,11 +1,15 @@
 var objectForLocalStorage = function(name, data) {
-  var stringObj = JSON.stringify(data);
+  var obj = {
+    todo: data,
+    complete: false
+  };
+  var stringObj = JSON.stringify(obj);
   var old = localStorage.getItem(name);
   if (old === null) {
     return stringObj;
   } else {
     return old + stringObj;
-  }j
+  }
 };
 
 $('.save').click(function(e) {
@@ -13,11 +17,7 @@ $('.save').click(function(e) {
   $(".input-text").val('');
   // var tag = "Task";
   // tag += localStorage.length < 10 ? "0" + localStorage.length : localStorage.length;
-  var newObj = {
-    todo: text,
-    complete: false
-  };
-  localStorage.setItem('Tasks', objectForLocalStorage('Tasks', newObj)); //CHANGE THIS TO tag, text
+  localStorage.setItem('Tasks', objectForLocalStorage('Tasks', text));
   event.preventDefault();
   // loadTasks();
 });
